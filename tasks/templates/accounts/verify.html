@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/accounts/login.css' %}">
+
+<div class="auth-container">
+    <form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Register</button>
+    </form>
+    <div class="auth-footer">
+        you have an account?
+        <a href="{% url 'verify' %}">login</a>
+    </div>
+</div>

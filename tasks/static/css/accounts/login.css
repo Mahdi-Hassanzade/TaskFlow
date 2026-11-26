@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #0f172a, #1e293b, #172554);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #fff;
+}
+
+.auth-container {
+width: 400px;
+max-width: 90%;
+padding: 35px;
+background: rgba(255, 255, 255, 0.06);
+border: 1px solid rgba(255, 255, 255, 0.12);
+border-radius: 18px;
+backdrop-filter: blur(15px);
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.auth-container h2 {
+text-align: center;
+font-size: 28px;
+margin-bottom: 10px;
+}
+
+.auth-container p {
+text-align: center;
+color: #94a3b8;
+margin-bottom: 25px;
+}
+
+.auth-container form p {
+text-align: left;
+margin-bottom: 15px;
+color: #e2e8f0;
+}
+
+.auth-container input {
+width: 100%;
+padding: 13px;
+margin-top: 7px;
+border: 1px solid #334155;
+border-radius: 9px;
+background: #1e293b;
+color: white;
+outline: none;
+transition: 0.3s;
+}
+
+.auth-container input:focus {
+border-color: #3b82f6;
+box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.auth-container button {
+width: 100%;
+padding: 13px;
+margin-top: 15px;
+border: none;
+border-radius: 9px;
+background: #2563eb;
+color: white;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.auth-container button:hover {
+background: #1d4ed8;
+transform: translateY(-2px);
+}
+
+.auth-container a {
+color: #60a5fa;
+text-decoration: none;
+}
+
+.auth-container a:hover {
+color: #93c5fd;
+}
+
+.auth-footer {
+text-align: center;
+margin-top: 22px;
+color: #94a3b8;
+font-size: 14px;
+}
+
+.errorlist {
+color: #f87171;
+font-size: 13px;
+list-style: none;
+margin-top: 5px;
+}
+.auth-container form p {
+    margin-bottom: 18px;
+}
+
+.auth-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e2e8f0;
+    font-weight: bold;
+}
+
+.auth-container .helptext {
+    display: block;
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 7px;
+    line-height: 1.6;
+}
+
+.auth-container ul {
+    color: #94a3b8;
+    font-size: 12px;
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+.auth-container .errorlist {
+    color: #f87171;
+    margin-bottom: 8px;
+}

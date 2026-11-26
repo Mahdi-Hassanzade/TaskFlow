@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body><aside class="sidebar">
+    <h2 class="logo">TaskFlow</h2>
+
+    <nav>
+        <a href="#" class="active"> dashboard</a>
+        <a href="/add/"> add task</a>
+        <a href="#">settings</a>
+        <a href="/accounts/logout">logout</a>
+    </nav>
+    <div class="profile">
+        <div class="avatar"></div>
+        {% if request.user.is_authenticated %}
+        <div>
+            <h4>{{ request.user.username }}</h4>
+        {% endif %}
+        </div>
+    </div>
+</aside>
+
+
+<main class="main-content">
+
+    <form class='search-box' method="get">
+    <input class="search-box-input" type="text" name="search" placeholder="Search tasks">
+    <button class="search-box-button" type="submit">search</button>
+</form>
+    <header class="header">
+        {% if request.user.is_authenticated %}
+        <div>
+            <h2>Welcome back,{{ request.user.username }}</h2>
+        {% else %}
+        </div>
+        <a href="/accounts/login"><button class="add-button">login</button></a>
+        <a href="/accounts/verify"><button class="add-button">Sign up</button></a>
+        {% endif %}
+
+
+    </header>
+
+    <section class="stats">
+        <a href="/">
+            <div class="stat-card">
+                <span>total Tasks</span>
+                <h2>{{ all_count }}</h2>
+                <small>all your tasks</small>
+            </div>
+        </a>
+
+        <a href="?status=pending">
+            <div class="stat-card">
+                <span>Pending</span>
+                <h2>{{ pending }}</h2>
+                <small>waiting to start</small>
+            </div>
+        </a>
+
+        <a href="?status=in progress">
+            <div class="stat-card">
+                <span>In Progress</span>
+                <h2>{{ progress }}</h2>
+                <small>currently working</small>
+            </div>
+        </a>
+
+        <a href="?status=completed">
+            <div class="stat-card">
+                <span>Completed</span>
+                <h2>{{ completed }}</h2>
+                <small>successfully finished</small>
+            </div>
+             </a>
+        <div class="priority-filter">
+        <a href="?priority=3">high: {{ high_count }}</a>
+        <a href="?priority=2">medium: {{ medium_count }}</a>
+        <a href="?priority=1">low: {{ low_count }}</a>
+        <a href="/">All</a>
+        </div>
+
+    </section>
+
+<div class="task-list">
+
+    {% for task in page %}
+        <div class="task-card">
+
+            <div class="task-info">
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+            </div>
+
+            <span class="priority high">{{ task.get_priority_display }}</span>
+            <form action="{% url 'update' task.id %}" method="post">
+                {% csrf_token %}
+            <button class="edit">Edit</button>
+            </form>
+            <form action="{% url 'delete' task.id %}" method="post">
+                {% csrf_token %}
+            <button class="delete">Delete</button>
+            </form>
+            <form action="{% url 'complete' task.id %}" method="post">
+                {% csrf_token %}
+            <button class="edit">complete</button>
+            </form>
+        </div>
+    {% endfor %}
+
+</div>
+
+<div class="pagination">
+
+    {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current-page">
+        Page {{ page.number }} of {{ page.paginator.num_pages }}
+    </span>
+
+    {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}">next</a>
+
+</div>
+{% endif %}
+    </section>
+
+
+</main>
+</body>
+</html>

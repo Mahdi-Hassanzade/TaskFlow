@@ -1,0 +1,137 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0e1020;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* Container */
+.add-container {
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Header */
+.add-header {
+    margin-bottom: 30px;
+}
+
+.add-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.add-header p {
+    color: #9295aa;
+}
+
+/* Form Card */
+.add-card {
+    background: #191c32;
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid #292d48;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    background: #0e1020;
+    border: 1px solid #303550;
+    border-radius: 9px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Buttons */
+.form-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-submit {
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background: #292d48;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background: #383d5c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .add-container {
+        margin: 20px auto;
+    }
+
+    .add-card {
+        padding: 20px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        text-align: center;
+    }
+}
